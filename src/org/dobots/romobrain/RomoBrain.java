@@ -1,7 +1,9 @@
 package org.dobots.romobrain;
 
 import org.dobots.robotalk.zmq.ZmqActivity;
-import org.dobots.robotalk.zmq.ZmqCoordinator;
+import org.dobots.robotalk.zmq.ZmqConnectionHelper;
+import org.dobots.robotalk.zmq.ZmqConnectionHelper.UseCase;
+import org.dobots.robotalk.zmq.ZmqHandler;
 import org.dobots.utilities.Utils;
 
 import robots.RobotType;
@@ -20,7 +22,9 @@ public class RomoBrain extends ZmqActivity {
 
 	private static Activity CONTEXT;
 	
-	private ZmqCoordinator m_oZmqCoordinator;
+	private ZmqConnectionHelper m_oZmqCoordinator;
+	
+	private ZmqHandler m_oZmqHandler;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +35,10 @@ public class RomoBrain extends ZmqActivity {
         CONTEXT = this;
         Utils.setContext(CONTEXT);
         
-        m_oZmqCoordinator = new ZmqCoordinator();
-        m_oZmqCoordinator.setup(this);
+        m_oZmqHandler = new ZmqHandler(this);
+        
+        m_oZmqCoordinator = new ZmqConnectionHelper(UseCase.ROBOT);
+        m_oZmqCoordinator.setup(m_oZmqHandler, this);
 
 	}
 	
