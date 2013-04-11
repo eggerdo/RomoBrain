@@ -7,3 +7,7 @@ The app requires a server to receive and send ZMQ command and video messages (se
 The client can be either a web browser (e.g. [here](https://github.com/eggerdo/robot_ctrl.node)) or another android device (e.g. [here](https://github.com/eggerdo/RoboTalk-User))
 
 Note: We have successfully run the Romo with the Nexus 4 and the LG Optimus 2x. Beside putting the media volume to maximum, on the Nexus 4 we used the SpeakerBoost App and put the boost to maximum. On the LG Optimus 2x we are running the CyanogenMod and had to put the 'Attenuation of set volume' to 0 dB in the CyanogenMod Sound settings.
+
+## Dependency
+
+The project depends on the [RoboTalk-Lib](https://github.com/eggerdo/RoboTalk-Lib) project. If you want to compile it, don't forget to checkout the project and add it to your workspace.
